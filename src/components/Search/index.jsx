@@ -13,10 +13,19 @@ import Card from "../Card";
 import { AppContext } from "../../store/AppContext";
 import { useContext } from "react";
 import { useSearch } from "../../hooks/useSearch";
+import { usePagination } from "../../hooks/usePagination";
+import Pagination from "../Pagination";
 
 const Search = ({ filter, admin }) => {
   const { contacts } = useContext(AppContext);
   const { result, handleSearch } = useSearch(contacts);
+  const {
+    paginatedData,
+    totalPages,
+    currentPage,
+    handlePageChange,
+    setCurrentPage,
+  } = usePagination(result, 5);
 
   return (
     <StyledSearch>
@@ -27,7 +36,9 @@ const Search = ({ filter, admin }) => {
           </SearchIcon>
 
           <input
-            onChange={(event) => handleSearch(event.currentTarget.value)}
+            onChange={(event) =>
+              handleSearch(event.currentTarget.value, setCurrentPage)
+            }
             type="search"
             placeholder="F.I.Sh | ichki raqam | bo'lim"
           />
@@ -47,10 +58,20 @@ const Search = ({ filter, admin }) => {
       </Form>
 
       <Result>
-        {result.map((contact, key) => {
+        {paginatedData.map((contact, key) => {
           return <Card key={key} {...contact} />;
         })}
       </Result>
+
+      {totalPages > 1 && (
+        <Pagination
+          activeClassName="active-page"
+          containerClassName="search-pagination"
+          totalPages={totalPages}
+          forcePage={currentPage}
+          handlePageChange={handlePageChange}
+        />
+      )}
     </StyledSearch>
   );
 };

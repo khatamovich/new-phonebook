@@ -34,23 +34,19 @@ const Card = ({
       </Head>
       <Body>
         <Field>
+          <Key>Boshqarma</Key>
+          <Value>{governance}</Value>
+        </Field>
+
+        <Field>
           <Key>Lavozim</Key>
           <Value>{jobtitle}</Value>
         </Field>
 
-        {!admin && (
-          <Field>
-            <Key>Bo&apos;lim</Key>
-            <Value>{separation}</Value>
-          </Field>
-        )}
-
-        {!admin && (
-          <Field>
-            <Key>Boshqarma</Key>
-            <Value>{governance}</Value>
-          </Field>
-        )}
+        <Field>
+          <Key>Bo&apos;lim</Key>
+          <Value>{separation}</Value>
+        </Field>
       </Body>
 
       <Foot>

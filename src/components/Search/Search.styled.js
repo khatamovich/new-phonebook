@@ -1,11 +1,71 @@
 import styled from "styled-components";
 
-export const StyledSearch = styled.section``;
+export const StyledSearch = styled.section`
+  .search-pagination {
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    max-width: 375px;
+    margin: 0 auto;
+    list-style: none;
+    gap: 1em;
+    line-height: 1;
+    background-color: #fff;
+    border-radius: 7px;
+    border: 1px solid #eee;
+    z-index: 1;
+
+    .disabled {
+      opacity: 0.3;
+
+      a {
+        cursor: not-allowed;
+      }
+    }
+
+    a {
+      background: transparent;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 220ms ease-in-out;
+      border-radius: 9px;
+      -webkit-user-select: none;
+      user-select: none;
+      transform: translateZ(0);
+      color: var(--c-accent);
+      font-weight: 700;
+      font-size: 15px;
+
+      &:hover {
+        opacity: 0.75;
+        color: var(--c-accent);
+      }
+    }
+
+    .active-page {
+      a {
+        color: var(--c-accent);
+        border: 2.75px solid var(--c-accent);
+      }
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+`;
 
 export const Form = styled.form`
   margin: 0 auto;
   margin-top: 1.125em;
-  margin-bottom: 2em;
+  margin-bottom: 1.25em;
   max-width: 320px;
 
   input,
@@ -34,7 +94,6 @@ export const Field = styled.div`
     border: none;
     outline: none;
     padding-left: 3.4em;
-    background-color: transparent;
   }
 `;
 
@@ -85,5 +144,5 @@ export const Result = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  padding-bottom: 3.25em;
+  padding-bottom: 4.25em;
 `;

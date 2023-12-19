@@ -8,8 +8,12 @@ import {
 export const useSearch = (data = []) => {
   const [result, setResult] = useState([]);
 
-  const handleSearch = (searchTerm) => {
-    if (!searchTerm || searchTerm.length < 2) return setResult([]);
+  const handleSearch = (searchTerm, setCurrentPage) => {
+    if (!searchTerm || searchTerm.length < 2) {
+      setResult([]);
+      setCurrentPage(0);
+      return;
+    }
 
     const filteredData = data?.filter(
       (item) =>
