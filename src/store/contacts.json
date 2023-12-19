@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "name": "Tursunaliev Murodjon Xotamjonovich",
+    "jobtitle": "Bosh mutahassis",
+    "separation": "Axborot tizimlariga xizmat ko'rsatish bo'limi",
+    "governance": "SMQIM",
+    "region": "Toshkent sh.",
+    "email": "quality-assurance@soliq.uz",
+    "phone": "01618"
+  },
+
+  {
+    "id": 1,
+    "name": "Yodgorxo'jaev Davron Doniyor o'gli",
+    "jobtitle": "Bosh mutahassis",
+    "separation": "Telekommunikatsiya tarmoqlariga xizmat ko'rsatish bo'limi",
+    "governance": "SMQIM",
+    "region": "Toshkent sh.",
+    "email": "yodgorxo'jaev_d@soliq.uz",
+    "phone": "01202"
+  },
+
+  {
+    "id": 2,
+    "name": "Xaydaraliev Eldor Boxodir o'gli",
+    "jobtitle": "Bosh mutahassis",
+    "separation": "Telekommunikatsiya tarmoqlariga xizmat ko'rsatish bo'limi",
+    "governance": "SMQIM",
+    "region": "Toshkent sh.",
+    "email": "xaydaraliev_e@soliq.uz",
+    "phone": "01331"
+  }
+]
