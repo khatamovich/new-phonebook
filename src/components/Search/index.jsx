@@ -29,16 +29,20 @@ const Search = ({ filter, admin }) => {
 
   return (
     <StyledSearch>
-      <Form>
+      <Form
+        onSubmit={(event) => {
+          event.preventDefault();
+        }}
+      >
         <Field>
           <SearchIcon>
             <FaSearch />
           </SearchIcon>
 
           <input
-            onChange={(event) =>
-              handleSearch(event.currentTarget.value, setCurrentPage)
-            }
+            onChange={(event) => {
+              handleSearch(event.currentTarget.value, setCurrentPage);
+            }}
             type="search"
             placeholder="F.I.Sh | ichki raqam | bo'lim"
           />
