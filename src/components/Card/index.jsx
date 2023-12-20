@@ -18,7 +18,7 @@ import { MdEditNote } from "react-icons/md";
 import { MdDeleteSweep } from "react-icons/md";
 
 const Card = ({
-  admin,
+  _id,
   name,
   jobtitle,
   separation,
@@ -27,6 +27,9 @@ const Card = ({
   email,
   phone,
 }) => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
     <StyledCard>
       <Head>
@@ -57,22 +60,19 @@ const Card = ({
 
         <Region>{region}</Region>
 
-        {!admin && (
-          <Email href={`mailto:${email}`}>
-            <AiOutlineMail />
-          </Email>
-        )}
+        <Email href={`mailto:${email}`}>
+          <AiOutlineMail />
+        </Email>
 
-        {admin && (
-          <Controls>
-            <button>
-              <MdEditNote />
-            </button>
-            <button>
-              <MdDeleteSweep />
-            </button>
-          </Controls>
-        )}
+        <Controls>
+          <button>
+            <MdEditNote />
+          </button>
+
+          <button>
+            <MdDeleteSweep />
+          </button>
+        </Controls>
       </Foot>
     </StyledCard>
   );
