@@ -16,7 +16,7 @@ import { useSearch } from "../../hooks/useSearch";
 import { usePagination } from "../../hooks/usePagination";
 import Pagination from "../Pagination";
 
-const Search = ({ filter, admin }) => {
+const Search = () => {
   const { contacts } = useContext(AppContext);
   const { result, handleSearch } = useSearch(contacts);
   const {
@@ -25,15 +25,11 @@ const Search = ({ filter, admin }) => {
     currentPage,
     handlePageChange,
     setCurrentPage,
-  } = usePagination(result, 5);
+  } = usePagination(result, 3);
 
   return (
     <StyledSearch>
-      <Form
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
-      >
+      <Form onSubmit={(event) => event.preventDefault()}>
         <Field>
           <SearchIcon>
             <FaSearch />
@@ -48,17 +44,15 @@ const Search = ({ filter, admin }) => {
           />
         </Field>
 
-        {!filter && (
-          <Filter>
-            <Dropdown>
-              <IoIosArrowDown />
+        <Filter>
+          <Dropdown>
+            <IoIosArrowDown />
 
-              <select>
-                <option value="">Toshkent sh.</option>
-              </select>
-            </Dropdown>
-          </Filter>
-        )}
+            <select>
+              <option value="">Toshkent sh.</option>
+            </select>
+          </Dropdown>
+        </Filter>
       </Form>
 
       <Result>

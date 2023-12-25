@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledBanner = styled.div`
   text-align: center;
-  margin-top: 3.25em;
 `;
 
 export const Logo = styled.img`

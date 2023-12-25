@@ -14,13 +14,14 @@ export const Head = styled.div`
     font-size: 1rem;
     line-height: 1;
     margin-bottom: 0.875em;
+    text-transform: capitalize;
   }
 `;
 
 export const Body = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.45em;
 `;
 
 export const Field = styled.div`
@@ -30,13 +31,17 @@ export const Field = styled.div`
 `;
 
 export const Key = styled.span`
-  width: 30px;
+  width: 25px;
   margin-right: 7em;
   white-space: nowrap;
 `;
 
 export const Value = styled.span`
   opacity: 0.5;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const Foot = styled.div`
@@ -53,6 +58,7 @@ export const Phone = styled.div`
   align-items: center;
   gap: 0.625em;
   font-size: 1.125em;
+  letter-spacing: 1px;
 
   svg {
     width: 24px;
@@ -64,6 +70,10 @@ export const Phone = styled.div`
 export const Region = styled.div`
   font-size: 0.875rem;
   opacity: 0.75;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 export const Email = styled.a`

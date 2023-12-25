@@ -21,6 +21,15 @@ const GlobalStyle = createGlobalStyle`
       line-height: 1.5;
       color: var(--c-black);
    }
+
+   .error {
+      border: 2px solid crimson;
+      color: crimson;
+      border-radius: 9px;
+      padding: .5em;
+      font-size: 0.875rem;
+      margin-top: 1em;
+  }
 `;
 
 export default GlobalStyle;

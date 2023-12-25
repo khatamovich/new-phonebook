@@ -1,30 +1,29 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
-import DataProvider from "./store/AppContext";
 // import contacts from "./store/contacts.json"; // Dummy data
-import { useFetchContacts } from "./hooks/useFetchContacts";
 
 // Pages
 import HomePage from "./pages";
-import AdminPage from "./pages/AdminPage";
-import New from "./pages/New";
+import AddPage from "./pages/Add";
+import LoginPage from "./pages/LoginPage";
+import { useAuthContext } from "./hooks/useAuthContext";
 
 const App = () => {
-  const { contacts } = useFetchContacts();
+  const { user } = useAuthContext();
 
   return (
-    <DataProvider value={{ contacts }}>
-      <Layout>
-        <Routes>
-          {/* Public routes */}
-          <Route path="/*" element={<HomePage />} />
+    <Layout>
+      <Routes>
+        <Route path="/*" element={<HomePage />} />
 
-          {/* Private routes */}
-          <Route path="/admin" element={<AdminPage />} exact />
-          <Route path="/new" element={<New />} exact />
-        </Routes>
-      </Layout>
-    </DataProvider>
+        <Route path="/add" element={user ? <AddPage /> : <LoginPage />} exact />
+
+        <Route
+          path="/login"
+          element={!user ? <LoginPage /> : <Navigate to="/" />}
+        />
+      </Routes>
+    </Layout>
   );
 };
 

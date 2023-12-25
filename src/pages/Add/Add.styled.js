@@ -9,7 +9,7 @@ export const Title = styled.h1`
   font-weight: 900;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
   width: 100%;
   max-width: 350px;
   margin: 0 auto;
@@ -44,8 +44,12 @@ export const Form = styled.div`
     outline: none;
     background-color: transparent;
     border-radius: 7px;
-    border: 1px solid #eee;
+    border: 2px solid #eee;
     box-shadow: 0px 3px 20px -10px #ccc;
+
+    &:invalid {
+      border: 2px solid crimson;
+    }
   }
 
   button {
@@ -53,14 +57,21 @@ export const Form = styled.div`
     display: block;
     border: none;
     outline: none;
-    border: 1px solid #eee;
-    border-radius: 7px;
-    font-weight: 700;
+    border-radius: 6px;
     padding: 0.825em 0;
-    background: var(--c-accent);
-    color: white;
     font-size: inherit;
     box-shadow: 0px 2px 39px -7px rgba(0, 0, 0, 0.17);
+    transition: 220ms;
+    background-color: seagreen;
+    color: white;
+    cursor: pointer;
+    transform: translateZ(0);
+
+    &[disabled] {
+      background-color: transparent;
+      color: #333;
+      cursor: not-allowed;
+    }
   }
 `;
 

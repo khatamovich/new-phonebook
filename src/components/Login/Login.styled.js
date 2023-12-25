@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const StyledLogin = styled.section`
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 export const Head = styled.div`

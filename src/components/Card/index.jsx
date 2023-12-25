@@ -16,6 +16,8 @@ import { IoCall } from "react-icons/io5";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdEditNote } from "react-icons/md";
 import { MdDeleteSweep } from "react-icons/md";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useDelete } from "../../hooks/useDelete";
 
 const Card = ({
   _id,
@@ -27,29 +29,36 @@ const Card = ({
   email,
   phone,
 }) => {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const { user } = useAuthContext();
+  const { handleDelete, isLoading } = useDelete();
 
   return (
     <StyledCard>
       <Head>
         <h2>{name}</h2>
       </Head>
+
       <Body>
-        <Field>
-          <Key>Boshqarma</Key>
-          <Value>{governance}</Value>
-        </Field>
+        {governance && (
+          <Field>
+            <Key>Boshqarma</Key>
+            <Value>{governance}</Value>
+          </Field>
+        )}
 
-        <Field>
-          <Key>Lavozim</Key>
-          <Value>{jobtitle}</Value>
-        </Field>
+        {jobtitle && (
+          <Field>
+            <Key>Lavozim</Key>
+            <Value>{jobtitle}</Value>
+          </Field>
+        )}
 
-        <Field>
-          <Key>Bo&apos;lim</Key>
-          <Value>{separation}</Value>
-        </Field>
+        {separation && (
+          <Field>
+            <Key>Bo&apos;lim</Key>
+            <Value>{separation}</Value>
+          </Field>
+        )}
       </Body>
 
       <Foot>
@@ -60,19 +69,23 @@ const Card = ({
 
         <Region>{region}</Region>
 
-        <Email href={`mailto:${email}`}>
-          <AiOutlineMail />
-        </Email>
+        {email && (
+          <Email href={`mailto:${email}`}>
+            <AiOutlineMail />
+          </Email>
+        )}
 
-        <Controls>
-          <button>
-            <MdEditNote />
-          </button>
+        {user && (
+          <Controls>
+            <button>
+              <MdEditNote />
+            </button>
 
-          <button>
-            <MdDeleteSweep />
-          </button>
-        </Controls>
+            <button disabled={isLoading} onClick={() => handleDelete(_id)}>
+              <MdDeleteSweep />
+            </button>
+          </Controls>
+        )}
       </Foot>
     </StyledCard>
   );

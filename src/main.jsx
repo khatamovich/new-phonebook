@@ -4,13 +4,21 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import GlobalStyle from "./Global.styled";
 
+// ContextProviders
+import { AuthContextProvider } from "./store/AuthContext";
+import { AppContextProvider } from "./store/AppContext";
+
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <AuthContextProvider>
+        <AppContextProvider>
+          <App />
+        </AppContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
     <GlobalStyle />
   </StrictMode>
