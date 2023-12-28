@@ -4,10 +4,6 @@ export const StyledLogin = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 `;
 
 export const Head = styled.div`

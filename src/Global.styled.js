@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
       font-style: normal;
       line-height: 1.5;
       color: var(--c-black);
+      scroll-behavior: smooth;
    }
 
    .error {

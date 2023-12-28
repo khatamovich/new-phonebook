@@ -4,10 +4,10 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const Pagination = ({
   handlePageChange,
   totalPages,
-  pageRangeDisplayed = 5,
+  pageRangeDisplayed = 0,
   previouseLabel,
   nextLabel,
-  breakLabel = "...",
+  breakLabel = "",
   ...props
 }) => {
   return (

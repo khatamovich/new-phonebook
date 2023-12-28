@@ -15,7 +15,7 @@ export const StyledSearch = styled.section`
     background-color: #fff;
     border-radius: 7px;
     border: 1px solid #eee;
-    z-index: 1;
+    z-index: 999;
 
     .disabled {
       opacity: 0.3;
@@ -67,6 +67,10 @@ export const Form = styled.form`
   margin-top: 1.125em;
   margin-bottom: 1.25em;
   max-width: 320px;
+  position: sticky;
+  background-color: #fff;
+  top: 1em;
+  z-index: 1;
 
   input,
   select {
@@ -145,4 +149,9 @@ export const Result = styled.div`
   flex-direction: column;
   gap: 1.5em;
   padding-bottom: 4.25em;
+  margin-top: 1.25em;
+
+  @media (max-width: 450px) {
+    padding: 0 2em;
+  }
 `;

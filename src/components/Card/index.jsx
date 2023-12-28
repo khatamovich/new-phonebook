@@ -18,6 +18,7 @@ import { MdEditNote } from "react-icons/md";
 import { MdDeleteSweep } from "react-icons/md";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useDelete } from "../../hooks/useDelete";
+import { Link } from "react-router-dom";
 
 const Card = ({
   _id,
@@ -35,7 +36,7 @@ const Card = ({
   return (
     <StyledCard>
       <Head>
-        <h2>{name}</h2>
+        <h2>{name.toLowerCase()}</h2>
       </Head>
 
       <Body>
@@ -64,7 +65,7 @@ const Card = ({
       <Foot>
         <Phone>
           <IoCall />
-          {phone}
+          {phone ? phone : "-"}
         </Phone>
 
         <Region>{region}</Region>
@@ -78,7 +79,9 @@ const Card = ({
         {user && (
           <Controls>
             <button>
-              <MdEditNote />
+              <Link to={`/edit?docid=${_id}`} rel="noreferrer" target="_blank">
+                <MdEditNote />
+              </Link>
             </button>
 
             <button disabled={isLoading} onClick={() => handleDelete(_id)}>

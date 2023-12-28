@@ -114,7 +114,11 @@ const Add = () => {
 
         <button
           disabled={
-            !contact.name || !contact.phone || !contact.region ? true : false
+            !contact.name.trim() ||
+            !contact.phone.trim() ||
+            !contact.region.trim()
+              ? true
+              : false
           }
           type="submit"
         >

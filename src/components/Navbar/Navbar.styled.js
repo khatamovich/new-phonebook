@@ -8,7 +8,7 @@ export const StyledNavbar = styled.nav`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 
   svg {
     width: 24px;
@@ -31,7 +31,7 @@ export const Links = styled.ul`
   }
 `;
 
-export const DynamicLinks = styled.ul`
+export const DynamicLinks = styled.div`
   display: flex;
   gap: 0.75em;
 
@@ -42,6 +42,7 @@ export const DynamicLinks = styled.ul`
     padding: 0.1em;
     border-radius: 7px;
     transition: 250ms;
+    cursor: pointer;
 
     &:hover {
       opacity: 0.75;
@@ -54,6 +55,16 @@ export const DynamicLinks = styled.ul`
     gap: 0.5em;
     text-decoration: none;
     color: inherit;
+  }
+
+  p {
+    color: crimson;
+    font-weight: 700;
+    margin-right: 1em;
+    border: 1px solid #eee;
+    padding: 0.5em;
+    font-size: 0.875rem;
+    border-radius: 10px;
   }
 `;
 

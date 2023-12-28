@@ -12,7 +12,7 @@ export const Head = styled.div`
   h2 {
     color: var(--c-accent);
     font-size: 1rem;
-    line-height: 1;
+    line-height: 1.4;
     margin-bottom: 0.875em;
     text-transform: capitalize;
   }
@@ -70,10 +70,7 @@ export const Phone = styled.div`
 export const Region = styled.div`
   font-size: 0.875rem;
   opacity: 0.75;
-
-  &::first-letter {
-    text-transform: uppercase;
-  }
+  white-space: nowrap;
 `;
 
 export const Email = styled.a`
@@ -82,7 +79,7 @@ export const Email = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 24px;
+  margin-left: 1em;
 
   svg {
     width: 20px;
@@ -96,6 +93,11 @@ export const Controls = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5em;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   svg {
     width: 26px;

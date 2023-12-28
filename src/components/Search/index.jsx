@@ -25,7 +25,7 @@ const Search = () => {
     currentPage,
     handlePageChange,
     setCurrentPage,
-  } = usePagination(result, 3);
+  } = usePagination(result, 5);
 
   return (
     <StyledSearch>
@@ -44,7 +44,7 @@ const Search = () => {
           />
         </Field>
 
-        <Filter>
+        {/* <Filter>
           <Dropdown>
             <IoIosArrowDown />
 
@@ -52,7 +52,7 @@ const Search = () => {
               <option value="">Toshkent sh.</option>
             </select>
           </Dropdown>
-        </Filter>
+        </Filter> */}
       </Form>
 
       <Result>

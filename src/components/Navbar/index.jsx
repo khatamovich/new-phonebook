@@ -34,6 +34,8 @@ const Navbar = () => {
       </Links>
 
       <DynamicLinks>
+        {user && <p>admin</p>}
+
         {!user && (
           <Login>
             <Link to="/login" title="Admin tizimga kirish">
