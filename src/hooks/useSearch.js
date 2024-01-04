@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   searchByName,
   searchByPhone,
+  searchByGovernance,
   searchBySeparation,
 } from "../utils/searchFunctions";
 
@@ -19,7 +20,8 @@ export const useSearch = (data = []) => {
       (item) =>
         searchByName(item, searchTerm) ||
         searchByPhone(item, searchTerm) ||
-        searchBySeparation(item, searchTerm)
+        searchBySeparation(item, searchTerm) ||
+        searchByGovernance(item, searchTerm)
     );
 
     setResult(filteredData);

@@ -66,7 +66,7 @@ export const Form = styled.form`
   margin: 0 auto;
   margin-top: 1.125em;
   margin-bottom: 1.25em;
-  max-width: 320px;
+  max-width: 350px;
   position: sticky;
   background-color: #fff;
   top: 1em;
@@ -98,6 +98,10 @@ export const Field = styled.div`
     border: none;
     outline: none;
     padding-left: 3.4em;
+
+    &::placeholder {
+      font-size: 0.875rem;
+    }
   }
 `;
 
@@ -144,14 +148,21 @@ export const SearchIcon = styled.div`
 `;
 
 export const Result = styled.div`
-  padding: 0 3em;
+  padding: 0 2.1em;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
   padding-bottom: 4.25em;
   margin-top: 1.25em;
 
-  @media (max-width: 450px) {
-    padding: 0 2em;
+  .support {
+    font-size: 0.875rem;
+    margin-left: 45px;
+    margin-top: -10px;
+
+    b {
+      color: crimson;
+      margin-left: 0.3em;
+    }
   }
 `;

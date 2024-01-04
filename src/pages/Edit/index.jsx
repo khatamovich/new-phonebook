@@ -4,6 +4,8 @@ import { useFetchContact } from "../../hooks/useFetchContact";
 import { useSearchParams } from "react-router-dom";
 import { useUpdate } from "../../hooks/useUpdate";
 import _ from "lodash";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { AuthContext } from "../../store/AuthContext";
 
 const initialState = {
   name: "",
@@ -20,6 +22,7 @@ const Edit = () => {
   const { currentDoc } = useFetchContact(docid);
   const { updateContact } = useUpdate();
   const [newDoc, setNewDoc] = useState(initialState);
+  const { uid } = useAuthContext(AuthContext);
 
   useEffect(() => {
     const { _id, ...current } = currentDoc;
@@ -31,15 +34,18 @@ const Edit = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { _id, ...current } = currentDoc;
+    const current = currentDoc;
+    delete current._id;
+
     const isEqual = _.isEqual(current, newDoc);
+    console.log(isEqual, current, newDoc);
 
     if (isEqual) {
       alert("O'zgarishlar aniqlanmadi");
       return;
     }
 
-    updateContact(docid, newDoc);
+    updateContact(docid, { ...newDoc, lastUpdatedBy: uid });
   };
 
   return (
@@ -52,6 +58,7 @@ const Edit = () => {
           <input
             type="text"
             required
+            maxLength={75}
             placeholder="Xodimning Familiyasi, Ismi, Sharifini kiriting"
             value={newDoc.name}
             onChange={(e) =>
@@ -125,6 +132,9 @@ const Edit = () => {
           Ichki raqam
           <input
             required
+            minLength={5}
+            maxLength={5}
+            pattern="^[0-9]*$"
             type="text"
             placeholder="Xodimning ichki telefon raqamini kiriting"
             value={newDoc.phone}

@@ -15,7 +15,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useLogout } from "../../hooks/useLogout";
 
 const Navbar = () => {
-  const { user } = useAuthContext();
+  const { user, username } = useAuthContext();
   const { logout } = useLogout();
 
   return (
@@ -26,15 +26,15 @@ const Navbar = () => {
             <FaHome />
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/manuals" title="Qo'llanmalar">
             <FaFileCircleQuestion />
           </Link>
-        </li>
+        </li> */}
       </Links>
 
       <DynamicLinks>
-        {user && <p>admin</p>}
+        {user && <p>{username}</p>}
 
         {!user && (
           <Login>

@@ -1,16 +1,28 @@
 import { StyledBanner, Logo, Title, LastUpdated } from "./Banner.styled";
+import { AppContext } from "../../store/AppContext";
+import { useContext } from "react";
 
 const Banner = () => {
+  const { updatedAt } = useContext(AppContext);
+
   return (
     <StyledBanner>
       <Logo src="/logo.svg" alt="Company logo" />
+
       <Title>
         <span>O’zbekiston respublikasi</span> Soliq qo’mitasi Hamda uning
         huzuridagi tashkilotlar xodimlarining ichki telefon raqam ro’yxati
       </Title>
-      <LastUpdated>
-        <b>2023-y 12 Dekabr</b> holatiga ko’ra
-      </LastUpdated>
+
+      {updatedAt.getYear ? (
+        <LastUpdated>
+          <b>
+            {updatedAt.getYear}-y {updatedAt.getDay} {updatedAt.getMonth}{" "}
+            {updatedAt.getHours}:{updatedAt.getMinutes}
+          </b>{" "}
+          holatiga ko’ra
+        </LastUpdated>
+      ) : null}
     </StyledBanner>
   );
 };

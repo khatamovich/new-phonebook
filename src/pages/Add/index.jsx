@@ -30,6 +30,7 @@ const Add = () => {
           <input
             type="text"
             required
+            maxLength={75}
             placeholder="Xodimning Familiyasi, Ismi, Sharifini kiriting"
             value={contact.name}
             onChange={(e) =>
@@ -103,6 +104,9 @@ const Add = () => {
           Ichki raqam
           <input
             required
+            minLength={5}
+            maxLength={5}
+            pattern="^[0-9]*$"
             type="text"
             placeholder="Xodimning ichki telefon raqamini kiriting"
             value={contact.phone}

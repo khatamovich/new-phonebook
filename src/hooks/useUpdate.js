@@ -23,7 +23,7 @@ export const useUpdate = () => {
       .patch(`/api/contacts/${id}`, newDoc, {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${user}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((response) => {

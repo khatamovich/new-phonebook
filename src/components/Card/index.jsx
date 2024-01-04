@@ -11,7 +11,7 @@ import {
   Email,
   Controls,
 } from "./Card.styled";
-
+import { RxUpdate } from "react-icons/rx";
 import { IoCall } from "react-icons/io5";
 import { AiOutlineMail } from "react-icons/ai";
 import { MdEditNote } from "react-icons/md";
@@ -19,6 +19,11 @@ import { MdDeleteSweep } from "react-icons/md";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useDelete } from "../../hooks/useDelete";
 import { Link } from "react-router-dom";
+import {
+  formatPhoneNumber,
+  getUpdateDate,
+} from "../../utils/transformerFunctions";
+import { useState, useEffect } from "react";
 
 const Card = ({
   _id,
@@ -29,13 +34,35 @@ const Card = ({
   region,
   email,
   phone,
+  lastUpdatedBy,
+  updatedAt,
 }) => {
   const { user } = useAuthContext();
   const { handleDelete, isLoading } = useDelete();
+  const formattedPhone = formatPhoneNumber(phone);
+  const [lastUpdatedAt, setLastUpdatedAt] = useState();
+
+  const getLastUpdated = (date) => {
+    if (!date) return;
+
+    const { getDay, getMonth, getYear, getHours, getMinutes } =
+      getUpdateDate(date);
+
+    setLastUpdatedAt({ getDay, getMonth, getYear, getHours, getMinutes });
+  };
+
+  useEffect(() => {
+    getLastUpdated(updatedAt);
+  }, [updatedAt]);
 
   return (
     <StyledCard>
       <Head>
+        {user && lastUpdatedBy && (
+          <RxUpdate
+            title={`Administrator: ${lastUpdatedBy?.username} \nSana: ${lastUpdatedAt?.getDay} ${lastUpdatedAt?.getMonth} ${lastUpdatedAt?.getYear}-yil \nVaqti: ${lastUpdatedAt?.getHours}:${lastUpdatedAt?.getMinutes}`}
+          />
+        )}
         <h2>{name.toLowerCase()}</h2>
       </Head>
 
@@ -65,7 +92,7 @@ const Card = ({
       <Foot>
         <Phone>
           <IoCall />
-          {phone ? phone : "-"}
+          {phone ? formattedPhone : "-"}
         </Phone>
 
         <Region>{region}</Region>

@@ -28,7 +28,7 @@ export const useDelete = () => {
     axios
       .delete(`/api/contacts/${id}`, {
         headers: {
-          Authorization: `Bearer ${user}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((response) => {

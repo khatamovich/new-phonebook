@@ -9,12 +9,22 @@ export const StyledCard = styled.div`
 `;
 
 export const Head = styled.div`
+  position: relative;
+
   h2 {
     color: var(--c-accent);
     font-size: 1rem;
     line-height: 1.4;
     margin-bottom: 0.875em;
     text-transform: capitalize;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    right: -0.75em;
+    opacity: 0.5;
+    cursor: pointer;
   }
 `;
 
@@ -58,7 +68,6 @@ export const Phone = styled.div`
   align-items: center;
   gap: 0.625em;
   font-size: 1.125em;
-  letter-spacing: 1px;
 
   svg {
     width: 24px;

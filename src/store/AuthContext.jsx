@@ -1,4 +1,5 @@
 import { createContext, useReducer, useEffect } from "react";
+import { useCheckAuth } from "../hooks/useCheckAuth";
 
 export const AuthContext = createContext();
 
@@ -23,20 +24,23 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
   });
+  const { auth } = useCheckAuth();
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
 
-    if (!token) return;
+    if (!token || !auth) return;
 
     dispatch({
       type: "LOGIN",
-      payload: token,
+      payload: { token },
     });
-  }, []);
+  }, [auth]);
 
   return (
-    <AuthContext.Provider value={{ ...state, dispatch }}>
+    <AuthContext.Provider
+      value={{ ...state, dispatch, username: auth?.username, uid: auth?.uid }}
+    >
       {children}
     </AuthContext.Provider>
   );

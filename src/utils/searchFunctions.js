@@ -12,6 +12,13 @@ export const searchByPhone = (item, searchTerm) => {
   );
 };
 
+export const searchByGovernance = (item, searchTerm) => {
+  return item.governance
+    ?.toLowerCase()
+    ?.trim()
+    ?.includes(searchTerm.toLowerCase().trim());
+};
+
 export const searchBySeparation = (item, searchTerm) => {
   return item.separation
     ?.toLowerCase()

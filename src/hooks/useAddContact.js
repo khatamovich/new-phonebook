@@ -15,7 +15,7 @@ export const useAddContact = () => {
     axios
       .post("/api/contacts", payload, {
         headers: {
-          Authorization: `Bearer ${user}`,
+          Authorization: `Bearer ${user.token}`,
         },
       })
       .then((response) => {
@@ -28,6 +28,7 @@ export const useAddContact = () => {
 
           if (!confirmation) {
             navigate("/");
+            setTimeout(() => navigate(0), 0);
             return;
           }
 

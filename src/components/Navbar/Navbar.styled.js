@@ -58,13 +58,12 @@ export const DynamicLinks = styled.div`
   }
 
   p {
-    color: crimson;
-    font-weight: 700;
-    margin-right: 1em;
-    border: 1px solid #eee;
+    margin-right: 0.3em;
     padding: 0.5em;
-    font-size: 0.875rem;
+    font-size: 0.825rem;
     border-radius: 10px;
+    opacity: 0.75;
+    border: 1px solid #eee;
   }
 `;
 

@@ -40,7 +40,7 @@ const Search = () => {
               handleSearch(event.currentTarget.value, setCurrentPage);
             }}
             type="search"
-            placeholder="F.I.Sh | ichki raqam | bo'lim"
+            placeholder="F.I.Sh | ichki raqam | boshqarma | bo'lim"
           />
         </Field>
 
@@ -56,6 +56,10 @@ const Search = () => {
       </Form>
 
       <Result>
+        <p className="support">
+          Texnik qo'llab quvvatlash: <b>01-755</b>
+        </p>
+
         {paginatedData.map((contact, key) => {
           return <Card key={key} {...contact} />;
         })}

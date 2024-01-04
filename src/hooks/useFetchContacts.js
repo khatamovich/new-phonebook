@@ -3,15 +3,23 @@ import axios from "axios";
 
 export const useFetchContacts = () => {
   const [contacts, setContacts] = useState([]);
+  const [date, setDate] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     axios
-      .get("http://localhost:7777/contacts")
+      .get("/api/contacts")
       .then((response) => {
         setLoading(true);
         setContacts(response.data.documents);
+        setDate(
+          new Date(
+            response.data.documents[
+              response.data.documents.length - 1
+            ].updatedAt
+          )
+        );
       })
       .catch((err) => {
         setError(err);
@@ -21,5 +29,5 @@ export const useFetchContacts = () => {
       });
   }, []);
 
-  return { contacts, loading, error };
+  return { contacts, loading, error, date };
 };
