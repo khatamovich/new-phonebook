@@ -36,8 +36,8 @@ export const useAddContact = () => {
           return;
         }
 
-        alert("Kontaktni qo'shishda muammo yuzaga keldi!");
         console.log(response);
+        alert("Kontaktni qo'shishda muammo yuzaga keldi!");
       })
       .catch((exception) => {
         console.log(exception);

@@ -38,7 +38,6 @@ const Edit = () => {
     delete current._id;
 
     const isEqual = _.isEqual(current, newDoc);
-    console.log(isEqual, current, newDoc);
 
     if (isEqual) {
       alert("O'zgarishlar aniqlanmadi");

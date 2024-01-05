@@ -27,7 +27,6 @@ export const useUpdate = () => {
         },
       })
       .then((response) => {
-        console.log(response.data.message);
         alert("Kontakt yangilandi");
 
         setTimeout(() => {
