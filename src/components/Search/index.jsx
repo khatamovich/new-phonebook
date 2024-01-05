@@ -55,11 +55,11 @@ const Search = () => {
         </Filter> */}
       </Form>
 
-      <Result>
-        <p className="support">
-          Texnik qo'llab quvvatlash: <b>01-755</b>
-        </p>
+      <p className="support">
+        Texnik qo'llab quvvatlash: <b>01-755</b>
+      </p>
 
+      <Result>
         {paginatedData.map((contact, key) => {
           return <Card key={key} {...contact} />;
         })}

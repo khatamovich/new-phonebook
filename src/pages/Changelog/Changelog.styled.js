@@ -21,8 +21,21 @@ export const Logs = styled.div`
   padding-bottom: 1em;
   margin-bottom: 1em;
 
+  &:not(:last-child) {
+    opacity: 0.5;
+    transition: 300ms ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   &:last-child {
     border: none;
+  }
+
+  @media (width <= 575px) {
+    flex-direction: column;
   }
 `;
 
@@ -41,6 +54,7 @@ export const Field = styled.div`
     font-size: 0.9rem;
     font-weight: 700;
   }
+
   p {
     &.highlight {
       background-color: yellow;

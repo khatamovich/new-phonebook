@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
 export const StyledSearch = styled.section`
+  .support {
+    font-size: 0.875rem;
+    margin: 0 auto;
+    margin-top: -10px;
+    margin-bottom: 1.25em;
+    max-width: 340px;
+
+    b {
+      color: crimson;
+      margin-left: 0.3em;
+    }
+  }
+
   .search-pagination {
     position: fixed;
     bottom: 1em;
@@ -153,19 +166,7 @@ export const Result = styled.div`
   flex-direction: column;
   gap: 1.5em;
   padding-bottom: 4.25em;
-  margin-top: 1.25em;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-
-  .support {
-    font-size: 0.875rem;
-    margin-left: 45px;
-    margin-top: -10px;
-
-    b {
-      color: crimson;
-      margin-left: 0.3em;
-    }
-  }
 `;

@@ -60,6 +60,11 @@ const Changelog = () => {
                 </Field>
 
                 <Field>
+                  <span>Hudud</span>
+                  <p>{logDoc.region || "-"}</p>
+                </Field>
+
+                <Field>
                   <span>E-mail</span>
                   <p>{logDoc.email || "-"}</p>
                 </Field>
@@ -110,6 +115,13 @@ const Changelog = () => {
                   <span>Lavozim</span>
                   <p className={detectChanges(logDoc, "jobtitle")}>
                     {logDoc.new.jobtitle || "-"}
+                  </p>
+                </Field>
+
+                <Field>
+                  <span>Hudud</span>
+                  <p className={detectChanges(logDoc, "region")}>
+                    {logDoc.new.region || "-"}
                   </p>
                 </Field>
 

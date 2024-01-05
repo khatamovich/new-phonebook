@@ -42,8 +42,6 @@ const Card = ({
         {user && changelog.length >= 1 ? (
           <Link
             to={`/changelog?identifier=${_id}`}
-            rel="noreferrer"
-            target="_blank"
             title="O'zgarishlar haqida ma'lumot"
           >
             <RxUpdate />
@@ -92,7 +90,7 @@ const Card = ({
         {user && (
           <Controls>
             <button>
-              <Link to={`/edit?docid=${_id}`} rel="noreferrer" target="_blank">
+              <Link to={`/edit?docid=${_id}`}>
                 <MdEditNote />
               </Link>
             </button>

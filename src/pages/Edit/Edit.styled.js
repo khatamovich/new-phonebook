@@ -16,6 +16,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1em;
+  margin-bottom: 2em;
 
   input,
   select {

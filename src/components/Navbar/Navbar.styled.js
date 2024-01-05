@@ -39,10 +39,13 @@ export const DynamicLinks = styled.div`
     font-size: inherit;
     background-color: #fff;
     border: 1px solid #eee;
-    padding: 0.1em;
     border-radius: 7px;
     transition: 250ms;
     cursor: pointer;
+
+    a {
+      padding: 0.2em;
+    }
 
     &:hover {
       opacity: 0.75;
