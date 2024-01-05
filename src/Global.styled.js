@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
       line-height: 1.5;
       color: var(--c-black);
       scroll-behavior: smooth;
+      margin: 0 auto;
    }
 
    .error {

@@ -13,6 +13,7 @@ export const AppContextProvider = ({ children }) => {
 
     const { getDay, getMonth, getYear, getHours, getMinutes } =
       getUpdateDate(date);
+
     setUpdatedAt({ getDay, getMonth, getYear, getHours, getMinutes });
   };
 

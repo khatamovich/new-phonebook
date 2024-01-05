@@ -19,11 +19,7 @@ import { MdDeleteSweep } from "react-icons/md";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useDelete } from "../../hooks/useDelete";
 import { Link } from "react-router-dom";
-import {
-  formatPhoneNumber,
-  getUpdateDate,
-} from "../../utils/transformerFunctions";
-import { useState, useEffect } from "react";
+import { formatPhoneNumber } from "../../utils/transformerFunctions";
 
 const Card = ({
   _id,
@@ -34,35 +30,25 @@ const Card = ({
   region,
   email,
   phone,
-  lastUpdatedBy,
-  updatedAt,
+  changelog,
 }) => {
   const { user } = useAuthContext();
   const { handleDelete, isLoading } = useDelete();
   const formattedPhone = formatPhoneNumber(phone);
-  const [lastUpdatedAt, setLastUpdatedAt] = useState();
-
-  const getLastUpdated = (date) => {
-    if (!date) return;
-
-    const { getDay, getMonth, getYear, getHours, getMinutes } =
-      getUpdateDate(date);
-
-    setLastUpdatedAt({ getDay, getMonth, getYear, getHours, getMinutes });
-  };
-
-  useEffect(() => {
-    getLastUpdated(updatedAt);
-  }, [updatedAt]);
 
   return (
     <StyledCard>
       <Head>
-        {user && lastUpdatedBy && (
-          <RxUpdate
-            title={`Administrator: ${lastUpdatedBy?.username} \nSana: ${lastUpdatedAt?.getDay} ${lastUpdatedAt?.getMonth} ${lastUpdatedAt?.getYear}-yil \nVaqti: ${lastUpdatedAt?.getHours}:${lastUpdatedAt?.getMinutes}`}
-          />
-        )}
+        {user && changelog.length >= 1 ? (
+          <Link
+            to={`/changelog?identifier=${_id}`}
+            rel="noreferrer"
+            target="_blank"
+            title="O'zgarishlar haqida ma'lumot"
+          >
+            <RxUpdate />
+          </Link>
+        ) : null}
         <h2>{name.toLowerCase()}</h2>
       </Head>
 

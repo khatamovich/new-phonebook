@@ -7,6 +7,7 @@ import ProtectedRoutes from "./utils/ProtectedRoutes";
 import HomePage from "./pages";
 import AddPage from "./pages/Add";
 import EditPage from "./pages/Edit";
+import ChangelogPage from "./pages/Changelog";
 import LoginPage from "./pages/LoginPage";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route element={<ProtectedRoutes />}>
           <Route path="/add" element={<AddPage />} />
           <Route path="/edit" element={<EditPage />} />
+          <Route path="/changelog" element={<ChangelogPage />} />
         </Route>
       </Routes>
     </Layout>

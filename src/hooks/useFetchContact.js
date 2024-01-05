@@ -13,6 +13,8 @@ export const useFetchContact = (docid) => {
       .catch((exception) => {
         console.log(exception);
       });
+
+    return () => false;
   }, [docid]);
 
   return {

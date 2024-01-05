@@ -11,6 +11,8 @@ import { AppContextProvider } from "./store/AppContext";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
+const name = "Murod";
+
 root.render(
   <StrictMode>
     <BrowserRouter>

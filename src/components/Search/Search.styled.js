@@ -154,6 +154,9 @@ export const Result = styled.div`
   gap: 1.5em;
   padding-bottom: 4.25em;
   margin-top: 1.25em;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 
   .support {
     font-size: 0.875rem;

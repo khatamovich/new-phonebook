@@ -23,8 +23,14 @@ export const Head = styled.div`
     position: absolute;
     top: 0;
     right: -0.75em;
-    opacity: 0.5;
     cursor: pointer;
+    transition: 1s ease-in-out;
+    color: #777;
+
+    &:hover {
+      color: var(--c-accent);
+      transform: rotate(360deg);
+    }
   }
 `;
 

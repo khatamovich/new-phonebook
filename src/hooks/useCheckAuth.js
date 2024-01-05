@@ -15,7 +15,7 @@ export const useCheckAuth = () => {
       .then((response) => {
         setAuth({
           success: response.data.success,
-          username: response.data.uname,
+          username: response.data.name,
           uid: response.data.uid,
         });
       })

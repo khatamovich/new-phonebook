@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
   padding: 2em 1.75em;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   margin-bottom: 1em;
 
