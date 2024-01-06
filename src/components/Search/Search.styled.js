@@ -1,19 +1,6 @@
 import styled from "styled-components";
 
 export const StyledSearch = styled.section`
-  .support {
-    font-size: 0.875rem;
-    margin: 0 auto;
-    margin-top: -10px;
-    margin-bottom: 1.25em;
-    max-width: 340px;
-
-    b {
-      color: crimson;
-      margin-left: 0.3em;
-    }
-  }
-
   .search-pagination {
     position: fixed;
     bottom: 1em;
@@ -78,20 +65,17 @@ export const StyledSearch = styled.section`
 export const Form = styled.form`
   margin: 0 auto;
   margin-top: 1.125em;
-  margin-bottom: 1.25em;
   max-width: 350px;
   position: sticky;
-  background-color: #fff;
   top: 1em;
-  z-index: 1;
+  z-index: 999;
 
-  input,
-  select {
+  input {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     -moz-appearance: none;
-    background-color: transparent;
+    background-color: #fff;
   }
 `;
 
@@ -119,24 +103,76 @@ export const Field = styled.div`
 `;
 
 export const Filter = styled.div`
+  max-width: 350px;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 1em;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+  position: relative;
+  padding: 0.2em;
+  border-radius: 5px;
+
+  .support {
+    margin-left: 0.3em;
+    font-size: 0.875rem;
+
+    b {
+      color: crimson;
+      margin-left: 0.3em;
+    }
+  }
 `;
 
-export const Dropdown = styled.div`
-  margin-top: 0.5em;
+export const Location = styled.div`
   display: flex;
-  gap: 0.31em;
-  overflow: hidden;
-  margin-right: 10px;
+  gap: 0.2em;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #777;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  margin-left: auto;
+  user-select: none;
 
-  select {
+  svg {
+    transform: translateZ(0);
+    width: 16px;
+    height: 16px;
+    color: #000;
+  }
+`;
+
+export const Dropdown = styled.ul`
+  position: absolute;
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  z-index: 1;
+  background-color: white;
+  top: 195%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 39px -7px rgba(0, 0, 0, 0.17);
+  right: 0;
+  padding: 0.5em;
+  list-style: none;
+  display: none;
+
+  &.active {
     display: block;
-    border: none;
-    outline: none;
+  }
+
+  li {
     font-size: 0.875rem;
+    border-radius: 5px;
+    transition: 125ms;
+    padding: 0.3em 0.5em;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.75;
+      background-color: #d8c1aa33;
+    }
   }
 `;
 
@@ -169,4 +205,5 @@ export const Result = styled.div`
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
+  user-select: none;
 `;

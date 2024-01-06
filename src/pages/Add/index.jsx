@@ -84,18 +84,19 @@ const Add = () => {
             }
           >
             <option value={"Toshkent sh."}>Toshkent sh.</option>
-            <option value="Andijon v.">Samarqand v.</option>
-            <option value="Buxoro v.">Samarqand v.</option>
-            <option value="Jizzah v.">Samarqand v.</option>
-            <option value="Qashqadaryo v.">Samarqand v.</option>
-            <option value="Navoiy v.">Samarqand v.</option>
-            <option value="Namangan v.">Samarqand v.</option>
+            <option value={"Toshkent v."}>Toshkent v.</option>
+            <option value="Andijon v.">Andijon v.</option>
+            <option value="Buxoro v.">Buxoro v.</option>
+            <option value="Jizzah v.">Jizzah v.</option>
+            <option value="Qashqadaryo v.">Qashqadaryo v.</option>
+            <option value="Navoiy v.">Navoiy v.</option>
+            <option value="Namangan v.">Namangan v.</option>
             <option value="Samarqand v.">Samarqand v.</option>
-            <option value="Surxondaryo v.">Samarqand v.</option>
-            <option value="Sirdaryo v.">Samarqand v.</option>
-            <option value="Farg'ona v.">Samarqand v.</option>
-            <option value="Xorazm v.">Samarqand v.</option>
-            <option value="Qoraqalpog'iston v.">Samarqand v.</option>
+            <option value="Surxondaryo v.">Surxondaryo v.</option>
+            <option value="Sirdaryo v.">Sirdaryo v.</option>
+            <option value="Farg'ona v.">Farg'ona v.</option>
+            <option value="Xorazm v.">Xorazm v.</option>
+            <option value="Qoraqalpog'iston v.">Qoraqalpog'iston v.</option>
           </select>
         </Dropdown>
 
