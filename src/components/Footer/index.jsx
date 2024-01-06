@@ -5,7 +5,6 @@ const Footer = () => {
     <StyledFooter>
       <Row>
         <p>"Soliq ma'lumotlarini qayta ishlash markazi" DUK</p>
-        <span>v 2.0</span>
       </Row>
     </StyledFooter>
   );

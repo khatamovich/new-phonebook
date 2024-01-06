@@ -108,7 +108,7 @@ export const Filter = styled.div`
   display: flex;
   align-items: center;
   margin-top: 0.5em;
-  margin-bottom: 2em;
+  margin-bottom: 1.25em;
   position: relative;
   padding: 0.2em;
   border-radius: 5px;
@@ -200,7 +200,7 @@ export const Result = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  padding-bottom: 4.25em;
+  padding-bottom: 5em;
   width: 100%;
   max-width: 500px;
   margin: 0 auto;

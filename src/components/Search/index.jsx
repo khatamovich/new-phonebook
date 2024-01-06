@@ -13,7 +13,7 @@ import { FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import Card from "../Card";
 import { AppContext } from "../../store/AppContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { useSearch } from "../../hooks/useSearch";
 import { usePagination } from "../../hooks/usePagination";
 import Pagination from "../Pagination";
@@ -25,6 +25,11 @@ const Search = () => {
   // Dropdown hook
   const [selectedLocation, setSelectedLocation] = useState(
     localStorage.getItem("region") || ""
+  );
+  const inputRef = useRef();
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(
+    localStorage.getItem("search-term") || ""
   );
   const { active, toggle, close } = useLocationDropdown();
   const { result, handleSearch } = useSearch(contacts);
@@ -55,6 +60,13 @@ const Search = () => {
     return () => window.removeEventListener("click", handleClickOutside);
   }, [active]);
 
+  useEffect(() => {
+    handleSearch(searchTerm, setCurrentPage);
+    setTimeout(() => {
+      inputRef.current.focus();
+    }, 100);
+  }, [searchTerm, isSearchActive]);
+
   return (
     <StyledSearch>
       <Form onSubmit={(event) => event.preventDefault()}>
@@ -64,9 +76,13 @@ const Search = () => {
           </SearchIcon>
 
           <input
+            ref={inputRef}
             onChange={(event) => {
-              handleSearch(event.currentTarget.value, setCurrentPage);
+              setSearchTerm(event.currentTarget.value);
+              localStorage.setItem("search-term", event.currentTarget.value);
             }}
+            onFocus={() => setIsSearchActive(true)}
+            value={searchTerm}
             type="search"
             placeholder="F.I.Sh | ichki raqam | boshqarma | bo'lim"
           />
@@ -138,7 +154,7 @@ const Search = () => {
       </Filter>
 
       <Result>
-        {paginatedData.map((contact, key) => {
+        {paginatedData?.map((contact, key) => {
           return <Card key={key} {...contact} />;
         })}
       </Result>

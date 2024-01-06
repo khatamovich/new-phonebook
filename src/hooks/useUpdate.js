@@ -27,6 +27,7 @@ export const useUpdate = () => {
         },
       })
       .then((response) => {
+        localStorage.setItem("search-term", newDoc.name);
         alert("Kontakt yangilandi");
 
         setTimeout(() => {

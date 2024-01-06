@@ -32,10 +32,12 @@ export const usePagination = (data = [], itemsPerPage, selectedLocation) => {
   const handlePageChange = (selectedPage) => {
     setCurrentPage(selectedPage.selected);
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    setTimeout(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, 100);
   };
 
   return {

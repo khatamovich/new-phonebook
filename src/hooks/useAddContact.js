@@ -20,6 +20,7 @@ export const useAddContact = () => {
       })
       .then((response) => {
         if (response.data.success) {
+          localStorage.setItem("search-term", payload.name);
           alert("Yangi kontakt qo'shildi!");
 
           const confirmation = confirm(

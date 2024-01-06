@@ -32,7 +32,7 @@ export const useDelete = () => {
         },
       })
       .then((response) => {
-        console.log({ response });
+        localStorage.removeItem("search-term");
         alert("Kontakt o'chirildi");
 
         setTimeout(() => {

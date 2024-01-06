@@ -9,6 +9,7 @@ import {
 import { useFetchContact } from "../../hooks/useFetchContact";
 import { useSearchParams } from "react-router-dom";
 import { getUpdateDate } from "../../utils/transformerFunctions";
+import { useEffect } from "react";
 
 const Changelog = () => {
   const [searchParams] = useSearchParams();
@@ -30,6 +31,15 @@ const Changelog = () => {
 
   const detectChanges = (logDoc, prop) =>
     logDoc[prop]?.trim() !== logDoc.new[prop]?.trim() ? "highlight" : "";
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 100);
+  }, []);
 
   return (
     <StyledChangelog>
