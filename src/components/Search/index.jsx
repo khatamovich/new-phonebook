@@ -22,7 +22,7 @@ const Search = () => {
   const { contacts } = useContext(AppContext);
   // Dropdown hook
   const [selectedLocation, setSelectedLocation] = useState(
-    localStorage.getItem("region") || "Toshkent sh."
+    localStorage.getItem("region") || ""
   );
   const { active, toggle, close } = useLocationDropdown();
   const { result, handleSearch } = useSearch(contacts);
@@ -71,13 +71,16 @@ const Search = () => {
         </Field>
 
         <Dropdown className={active ? "active" : ""}>
+          <li data-key={""} onClick={handleUpdateLocation}>
+            O'zbekiston bo'ylab
+          </li>
           <li data-key={"Toshkent sh."} onClick={handleUpdateLocation}>
             Toshkent sh.
           </li>
           <li data-key={"Toshkent. v."} onClick={handleUpdateLocation}>
             Toshkent v.
           </li>
-          <li data-key={"Andijon v. "} onClick={handleUpdateLocation}>
+          <li data-key={"Andijon v."} onClick={handleUpdateLocation}>
             Andijon v.
           </li>
           <li data-key={"Buxoro v."} onClick={handleUpdateLocation}>
@@ -127,7 +130,7 @@ const Search = () => {
             e.stopPropagation();
           }}
         >
-          {selectedLocation}
+          {selectedLocation || "🇺🇿"}
           <IoIosArrowDown />
         </Location>
       </Filter>
