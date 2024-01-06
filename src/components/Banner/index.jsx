@@ -4,6 +4,14 @@ import { useContext } from "react";
 
 const Banner = () => {
   const { updatedAt } = useContext(AppContext);
+  const hours =
+    updatedAt.getHours?.toString().length === 1
+      ? "0" + updatedAt.getHours
+      : updatedAt.getHours;
+  const minutes =
+    updatedAt.getMinutes?.toString().length === 1
+      ? "0" + updatedAt.getMinutes
+      : updatedAt.getMinutes;
 
   return (
     <StyledBanner>
@@ -18,7 +26,7 @@ const Banner = () => {
         <LastUpdated>
           <b>
             {updatedAt.getYear}-y {updatedAt.getDay} {updatedAt.getMonth}{" "}
-            {updatedAt.getHours}:{updatedAt.getMinutes}
+            {hours}:{minutes}
           </b>{" "}
           holatiga ko’ra
         </LastUpdated>

@@ -21,7 +21,11 @@ const Changelog = () => {
     const { getDay, getMonth, getYear, getHours, getMinutes } =
       getUpdateDate(date);
 
-    return `${getDay} ${getMonth} ${getYear}-yil, ${getHours}:${getMinutes}`;
+    const hours = getHours?.toString().length === 1 ? "0" + getHours : getHours;
+    const minutes =
+      getMinutes?.toString().length === 1 ? "0" + getMinutes : getMinutes;
+
+    return `${getDay} ${getMonth} ${getYear}-yil, ${hours}:${minutes}`;
   };
 
   const detectChanges = (logDoc, prop) =>
