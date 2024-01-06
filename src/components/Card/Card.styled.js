@@ -5,7 +5,7 @@ export const StyledCard = styled.div`
   padding: 1.25em 2.065em;
   border-radius: 23px;
   border: 1px solid #eee;
-  box-shadow: 0px 2px 39px -7px rgba(0, 0, 0, 0.17);
+  box-shadow: 0px 2px 25px -7px rgba(0, 0, 0, 0.17);
 `;
 
 export const Head = styled.div`

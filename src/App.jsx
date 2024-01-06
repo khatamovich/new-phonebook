@@ -14,9 +14,27 @@ const App = () => {
   return (
     <Layout>
       <Routes>
-        <Route path="/*" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/admin" element={<LoginPage />} />
+
+        <Route
+          path="*"
+          element={
+            <p
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                fontSize: "30px",
+                textTransform: "uppercase",
+              }}
+            >
+              404
+            </p>
+          }
+        />
 
         <Route element={<ProtectedRoutes />}>
           <Route path="/add" element={<AddPage />} />

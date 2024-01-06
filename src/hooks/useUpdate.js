@@ -12,7 +12,7 @@ export const useUpdate = () => {
   const { logout } = useLogout();
 
   const updateContact = (id, newDoc) => {
-    if (!user) return navigate("/login");
+    if (!user) return navigate("/admin");
     if (!newDoc.name.trim() || !newDoc.phone.trim()) {
       return alert("Ma'lumotlarni to'gri to'ldiring");
     }
@@ -36,7 +36,7 @@ export const useUpdate = () => {
       .catch((exception) => {
         if (exception.response.status === 403) {
           logout();
-          navigate("/login");
+          navigate("/admin");
           return;
         }
 

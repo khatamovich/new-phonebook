@@ -7,6 +7,7 @@ import {
   Dropdown,
   Location,
   Result,
+  Flag,
 } from "./Search.styled";
 import { FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
@@ -17,6 +18,7 @@ import { useSearch } from "../../hooks/useSearch";
 import { usePagination } from "../../hooks/usePagination";
 import Pagination from "../Pagination";
 import { useLocationDropdown } from "../../hooks/useLocationDropdown";
+import Footer from "../Footer";
 
 const Search = () => {
   const { contacts } = useContext(AppContext);
@@ -72,49 +74,49 @@ const Search = () => {
 
         <Dropdown className={active ? "active" : ""}>
           <li data-key={""} onClick={handleUpdateLocation}>
-            O'zbekiston bo'ylab
+            Respublika bo'ylab
           </li>
           <li data-key={"Toshkent sh."} onClick={handleUpdateLocation}>
-            Toshkent sh.
+            Toshkent shaxri
           </li>
           <li data-key={"Toshkent. v."} onClick={handleUpdateLocation}>
-            Toshkent v.
+            Toshkent viloyati
           </li>
           <li data-key={"Andijon v."} onClick={handleUpdateLocation}>
-            Andijon v.
+            Andijon viloyati
           </li>
           <li data-key={"Buxoro v."} onClick={handleUpdateLocation}>
-            Buxoro v.
+            Buxoro viloyati
           </li>
           <li data-key={"Jizzah v."} onClick={handleUpdateLocation}>
-            Jizzah v.
+            Jizzah viloyati
           </li>
           <li data-key={"Qashqadaryo v."} onClick={handleUpdateLocation}>
-            Qashqadaryo v.
+            Qashqadaryo viloyati
           </li>
           <li data-key={"Navoiy v."} onClick={handleUpdateLocation}>
-            Navoiy v.
+            Navoiy viloyati
           </li>
           <li data-key={"Namangan v."} onClick={handleUpdateLocation}>
-            Namangan v.
+            Namangan viloyati
           </li>
           <li data-key={"Samarqand v."} onClick={handleUpdateLocation}>
-            Samarqand v.
+            Samarqand viloyati
           </li>
           <li data-key={"Surxondaryo v."} onClick={handleUpdateLocation}>
-            Surxondaryo v.
+            Surxondaryo viloyati
           </li>
           <li data-key={"Sirdaryo v."} onClick={handleUpdateLocation}>
-            Sirdaryo v.
+            Sirdaryo viloyati
           </li>
           <li data-key={"Farg'ona v."} onClick={handleUpdateLocation}>
-            Farg'ona v.
+            Farg'ona viloyati
           </li>
           <li data-key={"Xorazm v."} onClick={handleUpdateLocation}>
-            Xorazm v.
+            Xorazm viloyati
           </li>
           <li data-key={"Qoraqalpog'iston v."} onClick={handleUpdateLocation}>
-            Qoraqalpog'iston v.
+            Qoraqalpog'iston Respublikasi
           </li>
         </Dropdown>
       </Form>
@@ -130,7 +132,7 @@ const Search = () => {
             e.stopPropagation();
           }}
         >
-          {selectedLocation || "🇺🇿"}
+          {selectedLocation || <Flag alt="Uzbekitsan SVG" src="uzb-flag.svg" />}
           <IoIosArrowDown />
         </Location>
       </Filter>
@@ -141,7 +143,7 @@ const Search = () => {
         })}
       </Result>
 
-      {totalPages > 1 && (
+      {totalPages > 1 ? (
         <Pagination
           activeClassName="active-page"
           containerClassName="search-pagination"
@@ -149,6 +151,8 @@ const Search = () => {
           forcePage={currentPage}
           handlePageChange={handlePageChange}
         />
+      ) : (
+        <Footer />
       )}
     </StyledSearch>
   );

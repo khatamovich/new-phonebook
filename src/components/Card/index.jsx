@@ -82,7 +82,7 @@ const Card = ({
         <Region>{region}</Region>
 
         {email && (
-          <Email href={`mailto:${email}`}>
+          <Email title={email} href={`mailto:${email}`}>
             <AiOutlineMail />
           </Email>
         )}

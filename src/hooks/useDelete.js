@@ -12,7 +12,7 @@ export const useDelete = () => {
   const { logout } = useLogout();
 
   const handleDelete = (id) => {
-    if (!user) return navigate("/login");
+    if (!user) return navigate("/admin");
 
     setIsLoading(true);
 
@@ -42,7 +42,7 @@ export const useDelete = () => {
       .catch((exception) => {
         if (exception.response.status === 403) {
           logout();
-          navigate("/login");
+          navigate("/admin");
           return;
         }
 

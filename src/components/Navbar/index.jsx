@@ -6,7 +6,7 @@ import {
   Logout,
   Add,
 } from "./Navbar.styled";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaUserLock, FaHome } from "react-icons/fa";
 import { RiLogoutBoxLine } from "react-icons/ri";
 // import { FaFileCircleQuestion } from "react-icons/fa6";
@@ -17,15 +17,19 @@ import { useLogout } from "../../hooks/useLogout";
 const Navbar = () => {
   const { user, username } = useAuthContext();
   const { logout } = useLogout();
+  const { pathname } = useLocation();
 
   return (
     <StyledNavbar>
       <Links>
-        <li>
-          <Link to="/" title="Bosh sahifa">
-            <FaHome />
-          </Link>
-        </li>
+        {pathname.trim() === "/" ? null : (
+          <li>
+            <Link to="/" title="Bosh sahifa">
+              <FaHome />
+            </Link>
+          </li>
+        )}
+
         {/* <li>
           <Link to="/manuals" title="Qo'llanmalar">
             <FaFileCircleQuestion />
@@ -36,13 +40,13 @@ const Navbar = () => {
       <DynamicLinks>
         {user && <p>{username}</p>}
 
-        {!user && (
+        {/* {!user && (
           <Login>
-            <Link to="/login" title="Admin tizimga kirish">
+            <Link to="/admin" title="Admin tizimga kirish">
               <FaUserLock />
             </Link>
           </Login>
-        )}
+        )} */}
 
         {user && (
           <Add>

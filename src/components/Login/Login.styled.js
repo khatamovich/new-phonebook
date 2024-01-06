@@ -31,7 +31,7 @@ export const Form = styled.form`
   border: 1px solid #eee;
   padding: 2.75em;
   border-radius: 15px;
-  box-shadow: 0 3px 30px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px -3px rgba(0, 0, 0, 0.1);
 `;
 
 export const Field = styled.div`

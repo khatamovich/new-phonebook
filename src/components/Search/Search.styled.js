@@ -114,7 +114,7 @@ export const Filter = styled.div`
   border-radius: 5px;
 
   .support {
-    margin-left: 0.3em;
+    margin-left: 0.05em;
     font-size: 0.875rem;
 
     b {
@@ -137,9 +137,9 @@ export const Location = styled.div`
 
   svg {
     transform: translateZ(0);
-    width: 16px;
-    height: 16px;
-    color: #000;
+    width: 14px;
+    height: 14px;
+    color: #777;
   }
 `;
 
@@ -170,8 +170,7 @@ export const Dropdown = styled.ul`
     cursor: pointer;
 
     &:hover {
-      opacity: 0.75;
-      background-color: #d8c1aa33;
+      background-color: #f5f5f4;
     }
   }
 `;
@@ -206,4 +205,9 @@ export const Result = styled.div`
   max-width: 500px;
   margin: 0 auto;
   user-select: none;
+`;
+
+export const Flag = styled.img`
+  width: 20px;
+  height: 20px;
 `;
