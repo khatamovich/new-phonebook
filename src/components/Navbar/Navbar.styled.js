@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
-  padding: 2em 1.75em;
+  padding: 1.35em 1.75em;
   max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 1em;
 
   svg {
     width: 24px;
