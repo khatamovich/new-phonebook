@@ -2,7 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
    :root {
-      --c-accent: #4554A3;
+      /* --c-accent: #4554A3; */
+      --c-accent: #4c5a9b;
       --c-black: #333333;
    }
 
