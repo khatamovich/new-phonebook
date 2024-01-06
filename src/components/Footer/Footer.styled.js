@@ -12,6 +12,18 @@ export const StyledFooter = styled.footer`
 
 export const Row = styled.div`
   font-size: 0.85rem;
-  color: #555;
+  color: #777;
   line-height: 1.25;
+
+  span {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  p {
+    display: inline-block;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #eee;
+  }
 `;
